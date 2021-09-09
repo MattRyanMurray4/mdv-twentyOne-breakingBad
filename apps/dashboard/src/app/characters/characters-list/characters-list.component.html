@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> <h1>Select A Character</h1> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let character of characters"
+        (click)="selected.emit(character)"
+        class="mat-list-item"
+      >
+        <h1 matLine>{{ character.name }}</h1>
+        <p matLine>{{ character.birthday }}</p>
+        <button
+          mat-icon-button
+          (click)="deleted.emit(character); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+        <button mat-icon-button (click)="characterViewed.emit(character.char_id); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">more_vert</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

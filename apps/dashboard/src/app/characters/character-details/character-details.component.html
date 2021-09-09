@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentCharacter.char_id; else elseCreateNew">
+      Update {{ originalName }}
+    </mat-card-title>
+    <ng-template #elseCreateNew>
+      <h1>Submit a New Character</h1>
+    </ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Nickname</mat-label>
+        <input
+          matInput
+          placeholder="Nickname"
+          formControlName="nickname"
+          type="text"
+          name="nickname"
+        />
+        <mat-error *ngIf="form.get('nickname')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Birthday</mat-label>
+        <input
+          matInput
+          placeholder="Birthday"
+          formControlName="birthday"
+          type="text"
+          name="birthday"
+        />
+        <mat-error *ngIf="form.get('birthday')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Status</mat-label>
+        <input
+          matInput
+          placeholder="Status"
+          formControlName="status"
+          type="text"
+          name="status"
+        />
+        <mat-error *ngIf="form.get('status')">Required Field</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button [disabled]="form.invalid">
+        {{ currentCharacter.char_id ? 'Update' : 'Submit' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

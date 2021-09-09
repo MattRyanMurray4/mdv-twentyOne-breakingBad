@@ -1,0 +1,11 @@
+<div class="info-container container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <div *ngIf="currentCharacter$ | async as character">
+      
+        <breakingbad-character-info
+        [character]="currentCharacter$ | async"
+        ></breakingbad-character-info>
+     
+    </div>
+  </div>
+</div>

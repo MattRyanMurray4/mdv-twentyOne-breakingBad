@@ -1,0 +1,10 @@
+@import 'variables';
+
+.mat-elevation-z4 {
+  background-color: $accent;
+}
+
+.mat-mini-fab {
+  background-color: $primary;
+  color: $accent;
+}

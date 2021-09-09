@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <breakingbad-characters-list
+      [characters]="characters$ | async"
+      (selected)="selectCharacter($event)"
+      (deleted)="deleteCharacter($event)"
+      (characterViewed)="viewCharacter($event)"
+    ></breakingbad-characters-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <breakingbad-character-details
+      [form]="form"
+      [character]="selectedCharacter$ | async"
+      (saved)="saveCharacter($event)"
+      (cancelled)="cancel()"
+    ></breakingbad-character-details>
+  </div>
+</div>

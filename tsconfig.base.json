@@ -14,8 +14,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
     "paths": {
-      "@breakingbad/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@breakingbad/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@breakingbad/core-data": ["libs/core-data/src/index.ts"],
+      "@breakingbad/core-state": ["libs/core-state/src/index.ts"],
+      "@env/environments": ["libs/environment/src/lib/environments/index.ts"],
+      "@breakingbad/material": ["libs/material/src/index.ts"],
+      "@breakingbad/theme": ["libs/theme/src/index.ts"],
+      "@breakingbad/ui-library": ["libs/ui-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

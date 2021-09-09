@@ -64,6 +64,56 @@
         }
       }
     },
+    "core-data": {
+      "projectType": "library",
+      "root": "libs/core-data",
+      "sourceRoot": "libs/core-data/src",
+      "prefix": "breakingbad",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core-data"],
+          "options": {
+            "jestConfig": "libs/core-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core-data/src/**/*.ts",
+              "libs/core-data/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "core-state": {
+      "projectType": "library",
+      "root": "libs/core-state",
+      "sourceRoot": "libs/core-state/src",
+      "prefix": "breakingbad",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core-state"],
+          "options": {
+            "jestConfig": "libs/core-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core-state/src/**/*.ts",
+              "libs/core-state/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "dashboard": {
       "projectType": "application",
       "root": "apps/dashboard",
@@ -85,6 +135,9 @@
               "apps/dashboard/src/assets"
             ],
             "styles": ["apps/dashboard/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/theme/src/lib/"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -103,8 +156,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/dashboard/src/environments/environment.ts",
-                  "with": "apps/dashboard/src/environments/environment.prod.ts"
+                  "replace": "libs/environment/src/lib/environments/environment.ts",
+                  "with": "libs/environment/src/lib/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -182,6 +235,106 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/dashboard-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "environment": {
+      "projectType": "library",
+      "root": "libs/environment",
+      "sourceRoot": "libs/environment/src",
+      "prefix": "breakingbad",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/environment"],
+          "options": {
+            "jestConfig": "libs/environment/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/environment/src/**/*.ts",
+              "libs/environment/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "breakingbad",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/material"],
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/material/src/**/*.ts",
+              "libs/material/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "theme": {
+      "projectType": "library",
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
+      "prefix": "breakingbad",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/theme"],
+          "options": {
+            "jestConfig": "libs/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/theme/src/**/*.ts",
+              "libs/theme/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-library": {
+      "projectType": "library",
+      "root": "libs/ui-library",
+      "sourceRoot": "libs/ui-library/src",
+      "prefix": "breakingbad",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui-library"],
+          "options": {
+            "jestConfig": "libs/ui-library/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-library/src/**/*.ts",
+              "libs/ui-library/src/**/*.html"
+            ]
           }
         }
       }
